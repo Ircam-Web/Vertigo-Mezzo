@@ -55,7 +55,7 @@ DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 
 ADMINS = (
     ('Guillaume Pellerin', 'guillaume.pellerin@ircam.fr'),
-    ('Emilie Zawadzki', 'emilie.zawadzki@ircam.fr'),
+    ('David Palomares', 'd.palomares@libelium.com'),
 )
 
 # Make these unique, and don't share it with anybody.
@@ -64,13 +64,13 @@ NEVERCACHE_KEY = "m)u^%r@uh#r3wu0&$=#$1ogx)uy4hv93^2lt%c3@xi=^gifoj8paozijdihaze
 
 EMAIL_HOST = '' # please specify your smtp server address
 EMAIL_PORT = '25'
-SERVER_EMAIL = 'no-reply@no-reply.org' # a no reply address
-DEFAULT_FROM_EMAIL = 'default@default.org' # another address, default one
-DEFAULT_TO_EMAIL = 'recipient@recipient.org' # default recipient, for your tests
-EMAIL_SUBJECT_PREFIX = "[PREFIX]" # prefix title in email
+SERVER_EMAIL = 'no-reply-vertigo@ircam.fr'
+DEFAULT_FROM_EMAIL = 'Vertigo@iuk.fraunhofer.de'
+DEFAULT_TO_EMAIL = 'Vertigo@iuk.fraunhofer.de'
+EMAIL_SUBJECT_PREFIX = "[VERTIGO]"
 
-SITE_TITLE = 'Your Site'
-SITE_TAGLINE = 'This is a Mezzo site'
+SITE_TITLE = 'VERTIGO'
+SITE_TAGLINE = 'VERTIGO'
 
 EVENT_DOMAIN = "//eve.ircam.fr"
 EVENT_SHOP_URL = EVENT_DOMAIN+"/pub.php/event/%d/edit"
@@ -81,9 +81,8 @@ EVENT_CONFIRMATION_URL = EVENT_DOMAIN+"/pub.php/cart/done?transaction_id=%s"
 FIGGO_API_URL_PROD='https://ircam.ilucca.net/'
 FIGGO_API_HEADER_AUTH='Lucca application=bd6d5481-40eb-414b-9135-434e12749223'
 
-# HOST_THEMES = [
-#     ('manifeste.ircam.fr', 'themes.base'),
-#     ('vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
-#     ('vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
-#     ('www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
-# ]
+HOST_THEMES = [
+    ('vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
+    ('vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
+    ('www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
+]

@@ -148,7 +148,7 @@ USE_I18N = True
 USE_L10N = True
 
 AUTHENTICATION_BACKENDS = (
-#   Activate Auth LDAP : 
+#   Activate Auth LDAP :
 #   "organization.core.backend.OrganizationLDAPBackend",
     "mezzanine.core.auth_backends.MezzanineBackend",
     "guardian.backends.ObjectPermissionBackend",
@@ -232,10 +232,10 @@ DATABASES = {
 
 INSTALLED_APPS = [
     "organization_themes",
-    "organization_themes.ircam-www-theme",
-    # "organization_themes.vertigo-themes.vertigo_ircam_fr",
-    # "organization_themes.vertigo-themes.vertigo_starts_eu",
-    # "organization_themes.vertigo-themes.www_starts_eu",
+    # "organization_themes.ircam-www-theme",
+    "organization_themes.vertigo-themes.vertigo_ircam_fr",
+    "organization_themes.vertigo-themes.vertigo_starts_eu",
+    "organization_themes.vertigo-themes.www_starts_eu",
     "modeltranslation",
     "dal",
     "dal_select2",
@@ -626,7 +626,7 @@ if DEBUG :
 # 2 - Specify your LDAP settings :
 # https://django-auth-ldap.readthedocs.io/en/latest/
 
-# 3 - Activate LDAP Backend 
+# 3 - Activate LDAP Backend
 # Please see AUTHENTICATION_BACKENDS
 
 ##################
