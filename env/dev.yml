@@ -1,6 +1,6 @@
 
 app:
   ports:
-    - "9040:8000"
+    - "9022:8000"
   environment:
     - DEBUG=True
