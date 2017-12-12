@@ -36,3 +36,6 @@
     url = https://github.com/Ircam-Web/cartridge.git
     branch-master = master
     branch-dev = master
+[submodule "var"]
+	path = var
+    url = git+ssh://git@git.forge.ircam.fr/vertigo-data.git
