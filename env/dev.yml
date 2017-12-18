@@ -1,5 +1,6 @@
 
 app:
+  build: .
   ports:
     - "9022:8000"
   environment:
