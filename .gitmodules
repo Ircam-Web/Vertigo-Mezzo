@@ -18,7 +18,7 @@
 	path = bin
 	url = https://github.com/Ircam-Web/mezzo-bin.git
     branch-master = master
-    branch-dev = master
+    branch-dev = dev
 [submodule "lib/grappelli-safe"]
 	path = lib/grappelli-safe
 	url = https://github.com/yomguy/grappelli-safe.git
@@ -31,6 +31,12 @@
     branch-master = vertigo-master
     branch-dev = vertigo-dev
     ignore = dirty
+[submodule "var"]
+	path = var
+	url = git+ssh://git@git.forge.ircam.fr/ircam-www-data.git
+    ignore = dirty
+	branch-master = master
+	branch-dev = master
 [submodule "lib/cartridge"]
 	path = lib/cartridge
     url = https://github.com/Ircam-Web/cartridge.git
