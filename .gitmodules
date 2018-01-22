@@ -11,8 +11,8 @@
 [submodule "lib/mezzanine-organization-themes"]
 	path = lib/mezzanine-organization-themes
 	url = git@github.com:Ircam-Web/mezzanine-organization-themes.git
-    branch-master = master
-    branch-dev = dev
+    branch-master = vertigo-master
+    branch-dev = vertigo-dev
     ignore = dirty
 [submodule "bin"]
 	path = bin
