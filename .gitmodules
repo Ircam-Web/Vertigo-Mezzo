@@ -9,10 +9,10 @@
     branch-master = master
     branch-dev = dev
 [submodule "lib/mezzanine-organization-themes"]
-	path = lib/mezzanine-organization-themes
-	url = git@github.com:Ircam-Web/mezzanine-organization-themes.git
-    branch-master = vertigo-master
-    branch-dev = vertigo-dev
+    path = lib/mezzanine-organization-themes
+    url = git@github.com:Ircam-Web/mezzanine-organization-themes.git
+    branch-master = master
+    branch-dev = dev
     ignore = dirty
 [submodule "bin"]
     path = bin
@@ -26,8 +26,8 @@
     branch-dev = dynamic_stacked
     ignore = dirty
 [submodule "lib/mezzanine-organization"]
-	path = lib/mezzanine-organization
-	url = git@github.com:Ircam-Web/mezzanine-organization.git
+    path = lib/mezzanine-organization
+    url = git@github.com:Ircam-Web/mezzanine-organization.git
     branch-master = vertigo-master
     branch-dev = vertigo-dev
     ignore = dirty
@@ -37,5 +37,5 @@
     branch-master = master
     branch-dev = master
 [submodule "var"]
-	path = var
+    path = var
     url = git+ssh://git@git.forge.ircam.fr/vertigo-data.git
