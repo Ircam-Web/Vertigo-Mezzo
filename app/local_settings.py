@@ -52,17 +52,16 @@ from datetime import datetime, date
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 
-
 ADMINS = (
     ('Guillaume Pellerin', 'guillaume.pellerin@ircam.fr'),
     ('David Palomares', 'd.palomares@libelium.com'),
 )
 
 # Make these unique, and don't share it with anybody.
-SECRET_KEY = "j1qa@u$5ktqr^0_kwh@-j@*-80t$)ht!4-=ybz1xc%@3+r(r&tzefoih"
-NEVERCACHE_KEY = "m)u^%r@uh#r3wu0&$=#$1ogx)uy4hv93^2lt%c3@xi=^gifoj8paozijdihazefd"
+SECRET_KEY = "H7665jhuyUTGuhuUYT6è-ertyezçuàçi'09Iikrpokfàçir"
+NEVERCACHE_KEY = "87654RFGhju7665rdfGyuàiPOpkM;?NbGFr'(3(ezrTYuiJK"
 
-EMAIL_HOST = 'smtp.ircam.fr' # please specify your smtp server address
+EMAIL_HOST = 'localhost' # please specify your smtp server address
 EMAIL_PORT = '25'
 SERVER_EMAIL = 'no-reply-vertigo@ircam.fr'
 DEFAULT_FROM_EMAIL = 'Vertigo@iuk.fraunhofer.de'

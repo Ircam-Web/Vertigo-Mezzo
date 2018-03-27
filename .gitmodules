@@ -1,10 +1,10 @@
 [submodule "lib/mezzanine"]
-	path = lib/mezzanine
-	url = git@github.com:yomguy/mezzanine.git
+    path = lib/mezzanine
+    url = git@github.com:yomguy/mezzanine.git
     branch-master = mezzo-master
     branch-dev = mezzo-dev
 [submodule "lib/mezzanine-agenda"]
-	path = lib/mezzanine-agenda
+    path = lib/mezzanine-agenda
     url = git@github.com:Ircam-Web/mezzanine-agenda.git
     branch-master = master
     branch-dev = dev
@@ -15,13 +15,13 @@
     branch-dev = vertigo-dev
     ignore = dirty
 [submodule "bin"]
-	path = bin
-	url = git@github.com:Ircam-Web/mezzo-bin.git
+    path = bin
+    url = git@github.com:Ircam-Web/mezzo-bin.git
     branch-master = master
     branch-dev = dev
 [submodule "lib/grappelli-safe"]
-	path = lib/grappelli-safe
-	url = git@github.com:yomguy/grappelli-safe.git
+    path = lib/grappelli-safe
+    url = git@github.com:yomguy/grappelli-safe.git
     branch-master = dynamic_stacked
     branch-dev = dynamic_stacked
     ignore = dirty
@@ -31,14 +31,8 @@
     branch-master = vertigo-master
     branch-dev = vertigo-dev
     ignore = dirty
-[submodule "var"]
-	path = var
-	url = git+ssh://git@git.forge.ircam.fr/ircam-www-data.git
-    ignore = dirty
-	branch-master = master
-	branch-dev = master
 [submodule "lib/cartridge"]
-	path = lib/cartridge
+    path = lib/cartridge
     url = git@github.com:Ircam-Web/cartridge.git
     branch-master = master
     branch-dev = master
