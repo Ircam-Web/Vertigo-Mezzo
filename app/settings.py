@@ -287,6 +287,14 @@ INSTALLED_APPS = [
     'extra_views',
 ]
 
+CUSTOM_MODULES = False
+
+if CUSTOM_MODULES:
+    INSTALLED_APPS += [
+        "organization.custom",
+    ]
+
+
 
 HOST_THEMES = [
     ('example.com', 'organization_themes.ircam-www-theme'),
@@ -301,43 +309,37 @@ BOWER_INSTALLED_APPS = (
 
 # Add Migration Module path see : https://github.com/stephenmcd/mezzanine/blob/master/docs/model-customization.rst#field-injection-caveats
 MIGRATION_MODULES = {
-    "blog": "migrations.blog",
-    "forms": "migrations.forms",
-    "galleries": "migrations.galleries",
-    "pages": "migrations.pages",
-    "conf": "migrations.conf",
-    "shop": "migrations.shop",
-    "generic": "migrations.generic",
+    "blog": "mezzanine.migrations.blog",
+    "forms": "mezzanine.migrations.forms",
+    "galleries": "mezzanine.migrations.galleries",
+    "pages": "mezzanine.migrations.pages",
+    "conf": "mezzanine.migrations.conf",
+    "shop": "mezzanine.migrations.shop",
+    "generic": "mezzanine.migrations.generic",
 }
 
-TEMPLATES = [{'APP_DIRS': True,
+TEMPLATES = [{
                'BACKEND': 'django.template.backends.django.DjangoTemplates',
                'OPTIONS': {'builtins': ['mezzanine.template.loader_tags'],
                            'context_processors': ('django.contrib.auth.context_processors.auth',
                                                   'django.contrib.messages.context_processors.messages',
-                                                  'django.core.context_processors.debug',
-                                                  'django.core.context_processors.i18n',
-                                                  'django.core.context_processors.static',
-                                                  'django.core.context_processors.media',
-                                                  'django.core.context_processors.request',
-                                                  'django.core.context_processors.tz',
+                                                  'django.template.context_processors.debug',
+                                                  'django.template.context_processors.i18n',
+                                                  'django.template.context_processors.static',
+                                                  'django.template.context_processors.media',
+                                                  'django.template.context_processors.request',
+                                                  'django.template.context_processors.tz',
                                                   'mezzanine.conf.context_processors.settings',
                                                   'mezzanine.pages.context_processors.page',
                                                   'organization.core.context_processors.organization_settings',
-                                                  )
+                                                  ),
+                            'loaders': [
+                                'mezzanine.template.loaders.host_themes.Loader',
+                                'django.template.loaders.filesystem.Loader',
+                                'django.template.loaders.app_directories.Loader',
+                                ],
                         }
             }]
-
-
-TEMPLATE_LOADERS_OPTIONS = [('django.template.loaders.cached.Loader', [
-        'django.template.loaders.filesystem.Loader',
-        'django.template.loaders.app_directories.Loader',
-    ])]
-
-if not DEBUG:
-    TEMPLATES[0]['OPTIONS']['loaders'] = TEMPLATE_LOADERS_OPTIONS
-    TEMPLATES[0]['APP_DIRS'] = False
-
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
@@ -354,11 +356,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     "mezzanine.core.request.CurrentRequestMiddleware",
     "mezzanine.core.middleware.RedirectFallbackMiddleware",
-    "mezzanine.core.middleware.TemplateForDeviceMiddleware",
-    "mezzanine.core.middleware.TemplateForHostMiddleware",
     "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",
     "mezzanine.core.middleware.SitePermissionMiddleware",
     # Uncomment the following if using any of the SSL settings:
@@ -470,7 +469,9 @@ ADMIN_MENU_ORDER = (
                  (_('Media Library'), 'fb_browse'),
                  )),
     (_('Events'), ('mezzanine_agenda.Event',
+                  'mezzanine_agenda.Season',
                   'mezzanine_agenda.EventLocation',
+                  'mezzanine_agenda.EventShop',
                   'mezzanine_agenda.EventPrice',
                   'mezzanine_agenda.EventCategory',
                   'organization-agenda.EventPublicType',
@@ -481,11 +482,12 @@ ADMIN_MENU_ORDER = (
                     'organization-magazine.Brief',)),
     (_('Network'), ('organization-network.Organization',
                     'organization-network.OrganizationLinked',
+                    'organization-network.OrganizationRole',
+                    'organization-network.OrganizationType',
                     'organization-network.Department',
                     'organization-network.Team',
                     'organization-network.Person',
                     'organization-network.Activity',
-                    'organization-network.OrganizationType',
                     'organization-network.PersonListBlock',
                     )),
     (_('Activity'), ('organization-network.PersonActivity',
@@ -494,6 +496,7 @@ ADMIN_MENU_ORDER = (
                     'organization-network.ActivityGrade',
                     'organization-network.ActivityFramework',
                     'organization-network.ActivityFunction',
+                    'organization-network.ProjectActivity',
                     'organization-network.TrainingType',
                     'organization-network.TrainingTopic',
                     'organization-network.TrainingLevel',
@@ -504,14 +507,17 @@ ADMIN_MENU_ORDER = (
                     )),
     (_('Projects'), ('organization-projects.Project',
                     'organization-projects.ProjectCall',
+                    'organization-projects.ProjectContact',
                     'organization-projects.ProjectProgram',
                     'organization-projects.ProjectProgramType',
                     'organization-projects.ProjectTopic',
-                    'organization-projects.ProjectProgramType',
-                    'organization-projects.ProjectDemo',
+                    'organization-projects.ProjectWorkPackage',
+                    'organization-projects.ProjectPublicData',
+                    'organization-projects.ProjectPrivateData',
+                    'organization-projects.ProjectResidency',
                     'organization-projects.Repository',
                     'organization-projects.RepositorySystem',
-                    'organization-projects.ProjectWorkPackage'
+                    'organization-projects.ProjectDemo',
                     )),
     (_('Shop'), ('shop.Product',
                     'organization-shop.ProductList',
@@ -545,11 +551,13 @@ PAGES_MODELS = ('organization-pages.CustomPage',
                 'organization-projects.ProjectTopicPage',
                 'shop.Product')
 
+SEARCH_PARENTS_MODELS = ('organization-network.Person',)
+
 PAGES_PUBLISHED_INCLUDE_LOGIN_REQUIRED = True
 
 SEARCH_PER_PAGE = 10
 MAX_PAGING_LINKS = 10
-DAL_MAX_RESULTS = 20
+DAL_MAX_RESULTS = 100
 
 EVENT_SLUG = 'agenda'
 EVENT_GOOGLE_MAPS_DOMAIN = 'maps.google.fr'
@@ -591,6 +599,9 @@ OPTIONAL_APPS = (
 
 if DEBUG:
     OPTIONAL_APPS += ('debug_toolbar', 'hijack_admin',)
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+
+INTERNAL_IPS = ['127.0.0.1', '172.17.0.1']
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 DEBUG_TOOLBAR_PANELS = [

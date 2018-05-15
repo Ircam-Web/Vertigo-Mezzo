@@ -8,6 +8,7 @@
     url = https://github.com/Ircam-Web/mezzanine-agenda.git
     branch-master = master
     branch-dev = dev
+    ignore = dirty
 [submodule "lib/mezzanine-organization-themes"]
 	path = lib/mezzanine-organization-themes
 	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
@@ -31,17 +32,11 @@
     branch-master = vertigo-master
     branch-dev = vertigo-dev
     ignore = dirty
-[submodule "var"]
-	path = var
-	url = git+ssh://git@git.forge.ircam.fr/ircam-www-data.git
-    ignore = dirty
-	branch-master = master
-	branch-dev = master
 [submodule "lib/cartridge"]
 	path = lib/cartridge
     url = https://github.com/Ircam-Web/cartridge.git
     branch-master = master
     branch-dev = master
 [submodule "var"]
-	path = var
+    path = var
     url = git+ssh://git@git.forge.ircam.fr/vertigo-data.git

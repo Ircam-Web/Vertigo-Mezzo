@@ -2,4 +2,4 @@
 app:
     command: /bin/sh bin/app.sh
     ports:
-        - "8041:8000"
+        - "8040:8000"
