@@ -309,13 +309,13 @@ BOWER_INSTALLED_APPS = (
 
 # Add Migration Module path see : https://github.com/stephenmcd/mezzanine/blob/master/docs/model-customization.rst#field-injection-caveats
 MIGRATION_MODULES = {
-    "blog": "migrations.blog",
-    "forms": "migrations.forms",
-    "galleries": "migrations.galleries",
-    "pages": "migrations.pages",
-    "conf": "migrations.conf",
-    "shop": "migrations.shop",
-    "generic": "migrations.generic",
+    "blog": "mezzanine.migrations.blog",
+    "forms": "mezzanine.migrations.forms",
+    "galleries": "mezzanine.migrations.galleries",
+    "pages": "mezzanine.migrations.pages",
+    "conf": "mezzanine.migrations.conf",
+    "shop": "mezzanine.migrations.shop",
+    "generic": "mezzanine.migrations.generic",
 }
 
 TEMPLATES = [{
@@ -551,11 +551,13 @@ PAGES_MODELS = ('organization-pages.CustomPage',
                 'organization-projects.ProjectTopicPage',
                 'shop.Product')
 
+SEARCH_PARENTS_MODELS = ('organization-network.Person',)
+
 PAGES_PUBLISHED_INCLUDE_LOGIN_REQUIRED = True
 
 SEARCH_PER_PAGE = 10
 MAX_PAGING_LINKS = 10
-DAL_MAX_RESULTS = 20
+DAL_MAX_RESULTS = 100
 
 EVENT_SLUG = 'agenda'
 EVENT_GOOGLE_MAPS_DOMAIN = 'maps.google.fr'
