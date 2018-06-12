@@ -679,7 +679,7 @@ AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
 ##################
 
 ANONYMOUS_USER_NAME = None
-LOGIN_REDIRECT_URL = reverse_lazy('organization-network-person-detail')
+LOGIN_REDIRECT_URL = reverse_lazy('organization-network-person-profile')
 
 ##################
 # LOCAL SETTINGS #
