@@ -208,7 +208,7 @@ LANGUAGE_CODE = "en"
 # Supported languages
 LANGUAGES = (
     ('en', _('English')),
-    # ('fr', _('French')),
+    #('fr', _('French')),
 )
 
 LOCALE_PATHS = (
@@ -285,6 +285,7 @@ INSTALLED_APPS = [
     'compat',
     'guardian',
     'extra_views',
+    'postman'
 ]
 
 CUSTOM_MODULES = False
