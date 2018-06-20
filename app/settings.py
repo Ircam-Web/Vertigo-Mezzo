@@ -286,6 +286,8 @@ INSTALLED_APPS = [
     'guardian',
     'extra_views',
     'postman'
+    #'rdf_io',
+    #'skosxl',
 ]
 
 CUSTOM_MODULES = False
@@ -713,3 +715,4 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+    

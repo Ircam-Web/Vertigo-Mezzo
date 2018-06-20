@@ -29,7 +29,8 @@ gid='www-data'
 # pip install bleach==1.5.0 django==1.9.11
 pip install django-postman==3.6.1
 
-chown -R $uid:$gid $media
+# Install (staging) libs
+# /srv/bin/build/local/setup_lib.sh
 
 # waiting for other services
 sh $app/bin/wait.sh
