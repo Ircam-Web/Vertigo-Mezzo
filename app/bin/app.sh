@@ -27,7 +27,7 @@ gid='www-data'
 # pip install django-autocomplete-light django-querysetsequence
 # /usr/bin/yes | pip uninstall django-orderable
 # pip install bleach==1.5.0 django==1.9.11
-pip install django-postman==3.6.1
+# pip install django-postman==3.6.1 django-siteflags
 
 # Install (staging) libs
 # /srv/bin/build/local/setup_lib.sh
