@@ -65,12 +65,12 @@ if settings.USE_MODELTRANSLATION:
 
 
 urlpatterns += [
+    # Ulysses
+    url('^ulysses/', include('ulysses.urls')),
 
     # # App urls
     url("^", include('organization.urls')),
 
-    # Ulysses
-    url('^ulysses/', include('ulysses.urls')),
 
     
     url("^styles/$", direct_to_template, {"template": "styles.html"}, name="styles"),
