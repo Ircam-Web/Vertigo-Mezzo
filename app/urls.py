@@ -52,6 +52,7 @@ sitemaps = {
 # to the project's homepage.
 
 urlpatterns = [
+    
     # Change the admin prefix here to use an alternate URL for the
     # admin interface, which would be marginally more secure.
     url("^admin/", include(admin.site.urls)),
@@ -64,8 +65,14 @@ if settings.USE_MODELTRANSLATION:
 
 
 urlpatterns += [
-    # App urls
+
+    # # App urls
     url("^", include('organization.urls')),
+
+    # Ulysses
+    url('^ulysses/', include('ulysses.urls')),
+
+    
     url("^styles/$", direct_to_template, {"template": "styles.html"}, name="styles"),
 
     # sitemap
@@ -233,3 +240,4 @@ if "rdf_io" in settings.INSTALLED_APPS:
     urlpatterns += [
         url(r"^rdf_io/", include('rdf_io.urls'))
         ]
+
