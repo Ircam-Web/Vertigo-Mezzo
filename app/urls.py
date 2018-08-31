@@ -35,8 +35,14 @@ from mezzanine.core.sitemaps import DisplayableSitemap
 from mezzanine.core.views import direct_to_template
 from django.contrib.sitemaps.views import sitemap
 from sitemaps import *
+from ulysses.super_admin.sites import super_admin_site
+
 
 admin.autodiscover()
+
+for (model, model_admin) in super_admin_site._registry.items():
+    if not model in admin.site._registry.keys():
+        admin.site.register(model, model_admin.__class__)
 
 sitemaps = {
     'home_sitemap' : HomeSiteMap(),
@@ -55,7 +61,7 @@ urlpatterns = [
     
     # Change the admin prefix here to use an alternate URL for the
     # admin interface, which would be marginally more secure.
-    url("^admin/", include(admin.site.urls)),
+    url("^mezzo-admin/", include(admin.site.urls)),
     ]
 
 if settings.USE_MODELTRANSLATION:
