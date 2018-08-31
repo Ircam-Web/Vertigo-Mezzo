@@ -248,8 +248,8 @@ INSTALLED_APPS = [
     "dal",
     "dal_select2",
     "dal_queryset_sequence",
-    "django.contrib.admin.apps.SimpleAdminConfig",
-    # "django.contrib.admin",
+    #"django.contrib.admin.apps.SimpleAdminConfig",
+    "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.redirects",
@@ -734,3 +734,8 @@ else:
     set_dynamic_settings(globals())
 
 
+move = lambda n, k, i: n.insert(i, n.pop(n.index(k)))
+try:
+    move(INSTALLED_APPS, "ulysses.system", len(INSTALLED_APPS))
+except ValueError:
+    pass
