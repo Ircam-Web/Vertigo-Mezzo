@@ -61,7 +61,7 @@ ADMINS = (
 SECRET_KEY = "H7665jhuyUTGuhuUYT6è-ertyezçuàçi'09Iikrpokfàçir"
 NEVERCACHE_KEY = "87654RFGhju7665rdfGyuàiPOpkM;?NbGFr'(3(ezrTYuiJK"
 
-EMAIL_HOST = 'localhost' # please specify your smtp server address
+EMAIL_HOST = 'smtp.ircam.fr' # please specify your smtp server address
 EMAIL_PORT = '25'
 SERVER_EMAIL = 'no-reply-vertigo@ircam.fr'
 DEFAULT_FROM_EMAIL = 'Vertigo@iuk.fraunhofer.de'

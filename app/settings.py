@@ -208,7 +208,7 @@ LANGUAGE_CODE = "en"
 # Supported languages
 LANGUAGES = (
     ('en', _('English')),
-    # ('fr', _('French')),
+#    ('fr', _('French')),
 )
 
 LOCALE_PATHS = (
