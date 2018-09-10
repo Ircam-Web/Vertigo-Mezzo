@@ -30,6 +30,8 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.http import HttpResponse
+from django.views.generic.base import RedirectView
+from django.core.urlresolvers import reverse
 from mezzanine.conf import settings
 from mezzanine.core.sitemaps import DisplayableSitemap
 from mezzanine.core.views import direct_to_template
@@ -71,13 +73,12 @@ if settings.USE_MODELTRANSLATION:
 
 
 urlpatterns += [
-    # Ulysses
-    url('^ulysses/', include('ulysses.urls')),
 
     # # App urls
     url("^", include('organization.urls')),
-
-
+    
+    # Ulysses
+    url('^', include('ulysses.urls')),
     
     url("^styles/$", direct_to_template, {"template": "styles.html"}, name="styles"),
 
