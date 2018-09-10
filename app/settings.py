@@ -22,7 +22,7 @@
 
 from __future__ import absolute_import, unicode_literals
 
-import os
+import os, sys
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
 import ldap, logging
@@ -181,7 +181,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = '/srv/static/'
 
 STATICFILES_DIRS = [
-    '/srv/lib/mezzanine-organization/organization/static'
+    # '/srv/lib/mezzanine-organization/organization/static'
 ]
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -237,15 +237,18 @@ DATABASES = {
 ################
 
 INSTALLED_APPS = [
+
     "organization_themes",
     # "organization_themes.ircam-www-theme",
     "organization_themes.vertigo-themes.vertigo_ircam_fr",
     "organization_themes.vertigo-themes.vertigo_starts_eu",
     "organization_themes.vertigo-themes.www_starts_eu",
+
     "modeltranslation",
     "dal",
     "dal_select2",
     "dal_queryset_sequence",
+    #"django.contrib.admin.apps.SimpleAdminConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -335,6 +338,8 @@ TEMPLATES = [{
                                                   'mezzanine.conf.context_processors.settings',
                                                   'mezzanine.pages.context_processors.page',
                                                   'organization.core.context_processors.organization_settings',
+                                                  "ulysses.context_processors.ulysse_context_processor",
+                                                  "ulysses.context_processors.playlist",
                                                   ),
                             'loaders': [
                                 'mezzanine.template.loaders.host_themes.Loader',
@@ -630,7 +635,7 @@ SILENCED_SYSTEM_CHECKS = ["hijack_admin.E001"]
 
 if DEBUG :
     SILENCED_SYSTEM_CHECKS = []
-    HIJACK_LOGIN_REDIRECT_URL = "/person"
+    HIJACK_LOGIN_REDIRECT_URL = "/accounts/update/"
     HIJACK_LOGOUT_REDIRECT_URL = "/"
     HIJACK_ALLOW_GET_REQUESTS =  True
     HIJACK_DISPLAY_WARNING = True
@@ -682,8 +687,9 @@ AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
 ##################
 
 ANONYMOUS_USER_NAME = None
-# LOGIN_REDIRECT_URL = reverse_lazy('organization-network-profile')
-LOGIN_REDIRECT_URL = '/accounts/update/'
+LOGIN_REDIRECT_URL = reverse_lazy('organization-network-profile')
+# LOGIN_REDIRECT_URL = '/accounts/update/'
+
 
 ##################
 # LOCAL SETTINGS #
@@ -699,6 +705,17 @@ except ImportError as e:
         raise e
 
 
+##################
+# ULYSSES SETTINGS #
+##################
+
+try:
+    from ulysses_settings import *
+except ImportError as e:
+    if "ulysses_settings" not in str(e):
+        raise e
+
+        
 ####################
 # DYNAMIC SETTINGS #
 ####################
@@ -715,3 +732,10 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+
+move = lambda n, k, i: n.insert(i, n.pop(n.index(k)))
+try:
+    move(INSTALLED_APPS, "ulysses.system", len(INSTALLED_APPS))
+except ValueError:
+    pass

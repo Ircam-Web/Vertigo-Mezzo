@@ -30,7 +30,7 @@ gid='www-data'
 # pip install django-postman==3.6.1 django-siteflags
 
 # Install (staging) libs
-# /srv/bin/build/local/setup_lib.sh
+/srv/bin/build/local/setup_lib.sh
 
 # waiting for other services
 sh $app/bin/wait.sh

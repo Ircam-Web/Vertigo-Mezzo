@@ -30,13 +30,21 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.http import HttpResponse
+from django.views.generic.base import RedirectView
+from django.core.urlresolvers import reverse
 from mezzanine.conf import settings
 from mezzanine.core.sitemaps import DisplayableSitemap
 from mezzanine.core.views import direct_to_template
 from django.contrib.sitemaps.views import sitemap
 from sitemaps import *
+from ulysses.super_admin.sites import super_admin_site
+
 
 admin.autodiscover()
+
+for (model, model_admin) in super_admin_site._registry.items():
+    if not model in admin.site._registry.keys():
+        admin.site.register(model, model_admin.__class__)
 
 sitemaps = {
     'home_sitemap' : HomeSiteMap(),
@@ -52,9 +60,10 @@ sitemaps = {
 # to the project's homepage.
 
 urlpatterns = [
+    
     # Change the admin prefix here to use an alternate URL for the
     # admin interface, which would be marginally more secure.
-    url("^admin/", include(admin.site.urls)),
+    url("^mezzo-admin/", include(admin.site.urls)),
     ]
 
 if settings.USE_MODELTRANSLATION:
@@ -64,8 +73,13 @@ if settings.USE_MODELTRANSLATION:
 
 
 urlpatterns += [
-    # App urls
+
+    # # App urls
     url("^", include('organization.urls')),
+    
+    # Ulysses
+    url('^', include('ulysses.urls')),
+    
     url("^styles/$", direct_to_template, {"template": "styles.html"}, name="styles"),
 
     # sitemap
@@ -233,3 +247,4 @@ if "rdf_io" in settings.INSTALLED_APPS:
     urlpatterns += [
         url(r"^rdf_io/", include('rdf_io.urls'))
         ]
+

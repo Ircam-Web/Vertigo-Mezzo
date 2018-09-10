@@ -40,3 +40,12 @@
 [submodule "var"]
     path = var
     url = git+ssh://git@git.forge.ircam.fr/vertigo-data.git
+    branch-master = master
+    branch-dev = dev
+    ignore = dirty
+[submodule "lib/django-ulysses"]
+	path = lib/django-ulysses
+    url = git@forge-2.ircam.fr:POW/django-ulysses.git
+    branch-master = vertigo-master
+    branch-dev = vertigo-dev
+    ignore = dirty
