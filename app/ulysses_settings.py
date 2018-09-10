@@ -32,6 +32,8 @@ from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 from settings import *
 
 
+ULYSSES_ALLOW_IMPORT_FROM_PERSONAL_SPACE = False
+
 # UGLY NEED TO REWRITE IT BECAUSE OF PRECEDENCE OF REDEFINITION OF MEDIA_ROOT
 # it is set before in base.py
 # Absolute filesystem path to the directory that will hold composer personal spaces files.
