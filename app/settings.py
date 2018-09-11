@@ -635,7 +635,7 @@ SILENCED_SYSTEM_CHECKS = ["hijack_admin.E001"]
 
 if DEBUG :
     SILENCED_SYSTEM_CHECKS = []
-    HIJACK_LOGIN_REDIRECT_URL = "/accounts/update/"
+    HIJACK_LOGIN_REDIRECT_URL = reverse_lazy('profile-update')
     HIJACK_LOGOUT_REDIRECT_URL = "/"
     HIJACK_ALLOW_GET_REQUESTS =  True
     HIJACK_DISPLAY_WARNING = True
@@ -687,8 +687,7 @@ AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
 ##################
 
 ANONYMOUS_USER_NAME = None
-LOGIN_REDIRECT_URL = reverse_lazy('organization-network-profile')
-# LOGIN_REDIRECT_URL = '/accounts/update/'
+LOGIN_REDIRECT_URL = reverse_lazy('profile-update')
 
 
 ##################
