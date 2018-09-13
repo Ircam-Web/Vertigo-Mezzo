@@ -687,7 +687,7 @@ AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
 ##################
 
 ANONYMOUS_USER_NAME = None
-LOGIN_REDIRECT_URL = reverse_lazy('profile_update')
+LOGIN_REDIRECT_URL = reverse_lazy('organization-network-profile-settings')
 
 
 ##################
@@ -714,7 +714,6 @@ except ImportError as e:
     if "ulysses_settings" not in str(e):
         raise e
 
-        
 ####################
 # DYNAMIC SETTINGS #
 ####################
