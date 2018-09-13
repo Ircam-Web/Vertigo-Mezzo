@@ -23,7 +23,7 @@
 var:
     image: debian:jessie
     volumes:
-        - ./var/media:/srv/media
+        - /data/media:/srv/media
         - ./var/backup:/srv/backup
         - ./var/static:/srv/static
         - ./var/log/uwsgi:/var/log/uwsgi
