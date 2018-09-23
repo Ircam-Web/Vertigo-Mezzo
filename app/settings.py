@@ -30,7 +30,7 @@ from django.core.urlresolvers import reverse_lazy
 from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
-
+DEBUG=True
 import warnings
 warnings.filterwarnings(
         'ignore', r"DateTimeField .* received a naive datetime",
