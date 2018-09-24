@@ -45,7 +45,7 @@ db:
         - POSTGRES_PASSWORD=noodFof2Kna
 
 app:
-    image: ircamweb/mezzo:latest-dev
+    image: vertigo-sandbox_app 
     command: /bin/sh bin/app.sh --runserver
     volumes:
         - ./app:/srv/app
