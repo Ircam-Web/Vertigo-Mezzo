@@ -635,7 +635,7 @@ SILENCED_SYSTEM_CHECKS = ["hijack_admin.E001"]
 
 if DEBUG :
     SILENCED_SYSTEM_CHECKS = []
-    HIJACK_LOGIN_REDIRECT_URL = reverse_lazy('profile-update')
+    HIJACK_LOGIN_REDIRECT_URL = reverse_lazy('profile_update')
     HIJACK_LOGOUT_REDIRECT_URL = "/"
     HIJACK_ALLOW_GET_REQUESTS =  True
     HIJACK_DISPLAY_WARNING = True
@@ -714,7 +714,6 @@ except ImportError as e:
     if "ulysses_settings" not in str(e):
         raise e
 
-        
 ####################
 # DYNAMIC SETTINGS #
 ####################
