@@ -30,7 +30,7 @@ from django.core.urlresolvers import reverse_lazy
 from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
-
+DEBUG=True
 import warnings
 warnings.filterwarnings(
         'ignore', r"DateTimeField .* received a naive datetime",
@@ -477,7 +477,7 @@ FILEBROWSER_SELECT_FORMATS = {
 GRAPPELLI_INSTALLED = True
 # JQUERY_FILENAME = 'jquery-3.1.0.min.js'
 JQUERY_UI_FILENAME = 'jquery-ui-1.9.2.min.js'
-TINYMCE_SETUP_JS = "/static/js/tinymce_setup.js"
+TINYMCE_SETUP_JS = "/js/tinymce_setup.js"
 
 ADMIN_MENU_ORDER = (
     (_('Pages'), ('pages.Page', 'organization-pages.Home',

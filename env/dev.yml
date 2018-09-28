@@ -1,6 +1,6 @@
 
 app:
-    image: ircamweb/mezzo:latest-dev
+    build: .
     command: /bin/sh bin/app.sh --runserver
     ports:
         - "9022:8000"

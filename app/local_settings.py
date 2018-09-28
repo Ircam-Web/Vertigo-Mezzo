@@ -34,7 +34,7 @@ ADMINS = (
 SECRET_KEY = "H7665jhuyUTGuhuUYT6è-ertyezçuàçi'09Iikrpokfàçir"
 NEVERCACHE_KEY = "87654RFGhju7665rdfGyuàiPOpkM;?NbGFr'(3(ezrTYuiJK"
 
-EMAIL_HOST = 'localhost' # please specify your smtp server address
+EMAIL_HOST = 'smtp.ircam.fr' # please specify your smtp server address
 EMAIL_PORT = '25'
 SERVER_EMAIL = 'no-reply-vertigo@ircam.fr'
 DEFAULT_FROM_EMAIL = 'Vertigo@iuk.fraunhofer.de'
@@ -57,4 +57,7 @@ HOST_THEMES = [
     ('vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
     ('vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
     ('www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
+    ('sandbox.vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
+    ('sandbox.vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
+    ('sandbox.www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
 ]
