@@ -38,6 +38,18 @@ warnings.filterwarnings(
 
 SILENCED_SYSTEM_CHECKS = ['fields.W342',]
 
+
+###################################
+# MEZZANINE ORGANIZATION SETTINGS #
+###################################
+
+try:
+    from organization.settings import *
+except ImportError as e:
+    if "organization.settings" not in str(e):
+        raise e
+
+
 ######################
 # MEZZANINE SETTINGS #
 ######################
@@ -289,8 +301,8 @@ INSTALLED_APPS = [
     'guardian',
     'extra_views',
     #'postman'
-    #'rdf_io',
-    #'skosxl',
+    'rdf_io',
+    'skosxl',
 ]
 
 CUSTOM_MODULES = False
