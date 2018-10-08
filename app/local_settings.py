@@ -57,4 +57,7 @@ HOST_THEMES = [
     ('vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
     ('vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
     ('www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
+    ('sandbox.vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
+    ('sandbox.vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
+    ('sandbox.www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
 ]

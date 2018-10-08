@@ -30,13 +30,25 @@ from django.core.urlresolvers import reverse_lazy
 from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
-
+DEBUG=True
 import warnings
 warnings.filterwarnings(
         'ignore', r"DateTimeField .* received a naive datetime",
         RuntimeWarning, r'django\.db\.models\.fields')
 
 SILENCED_SYSTEM_CHECKS = ['fields.W342',]
+
+
+###################################
+# MEZZANINE ORGANIZATION SETTINGS #
+###################################
+
+try:
+    from organization.settings import *
+except ImportError as e:
+    if "organization.settings" not in str(e):
+        raise e
+
 
 ######################
 # MEZZANINE SETTINGS #
@@ -289,8 +301,8 @@ INSTALLED_APPS = [
     'guardian',
     'extra_views',
     #'postman'
-    #'rdf_io',
-    #'skosxl',
+    'rdf_io',
+    'skosxl',
 ]
 
 CUSTOM_MODULES = False
