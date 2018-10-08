@@ -1,9 +1,3 @@
-app:
-    image: ircamweb/mezzo:latest-dev
-    command: /bin/sh bin/app.sh
-    environment:
-        - DEBUG=True
-
 nginx:
     image: nginx    
     ports:
