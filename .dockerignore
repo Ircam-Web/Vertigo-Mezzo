@@ -1,0 +1,11 @@
+.git
+*.pyc
+*.egg-info
+**/build
+**/dist
+data/
+env/
+etc/
+tmp/
+var/
+**/.sass-cache
