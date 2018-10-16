@@ -224,8 +224,8 @@ LANGUAGES = (
 )
 
 LOCALE_PATHS = (
-    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale/'),
-    os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/ircam-www-theme/locale/'),
+    # os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale/'),
+    # os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/ircam-www-theme/locale/'),
 )
 
 #############
@@ -701,6 +701,21 @@ AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
 ANONYMOUS_USER_NAME = None
 LOGIN_REDIRECT_URL = reverse_lazy('organization-network-profile-settings')
 
+############
+# HAYSTACK #
+############
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'ulysses.search_backend.CustomElasticEngine',
+        'URL': 'http://search:9200/',
+        'INDEX_NAME': 'ulysses_search',
+        'INCLUDE_SPELLING': True,
+        'EXCLUDED_INDEXES': [
+        ]
+    },
+}
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 ##################
 # LOCAL SETTINGS #
