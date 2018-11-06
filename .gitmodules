@@ -6,8 +6,8 @@
 [submodule "lib/mezzanine-agenda"]
 	path = lib/mezzanine-agenda
     url = https://github.com/Ircam-Web/mezzanine-agenda.git
-    branch-master = master
-    branch-dev = dev
+    branch-master = vertigo-master
+    branch-dev = vertigo-dev
     ignore = dirty
 [submodule "lib/mezzanine-organization-themes"]
 	path = lib/mezzanine-organization-themes
