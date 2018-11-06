@@ -538,6 +538,7 @@ ADMIN_MENU_ORDER = (
                     'organization-projects.Repository',
                     'organization-projects.RepositorySystem',
                     'organization-projects.ProjectDemo',
+                    'organization-projects.Call',
                     )),
     (_('Shop'), ('shop.Product',
                     'organization-shop.ProductList',
