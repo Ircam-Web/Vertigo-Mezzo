@@ -1,20 +1,9 @@
-<<<<<<< HEAD
-
-app:
-    build: .
-    command: /bin/sh bin/app.sh --runserver
-    ports:
-        - "9022:8000"
-    environment:
-        - DEBUG=True
-=======
 version: '2'
 services:
     app:
         image: ircamweb/mezzo:latest
         command: /bin/sh bin/app.sh --runserver
         ports:
-            - "9001:8000"
+            - "9022:8000"
         env_file:
             - 'env/dev.env'
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017

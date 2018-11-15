@@ -38,25 +38,7 @@ warnings.filterwarnings(
 
 SILENCED_SYSTEM_CHECKS = ['fields.W342',]
 
-<<<<<<< HEAD
-
-###################################
-# MEZZANINE ORGANIZATION SETTINGS #
-###################################
-
-try:
-    from organization.settings import *
-except ImportError as e:
-    if "organization.settings" not in str(e):
-        raise e
-
-
-######################
-# MEZZANINE SETTINGS #
-######################
-=======
 SECRET_KEY = "H7665jhuyUTGuhuUYT6è-ertyezçuàçi'09Iikrpokfàçir"
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
 ###################################
 # MEZZANINE ORGANIZATION SETTINGS #
@@ -100,57 +82,11 @@ USE_I18N = True
 USE_L10N = True
 
 AUTHENTICATION_BACKENDS = (
-<<<<<<< HEAD
-#   Activate Auth LDAP :
-#   "organization.core.backend.OrganizationLDAPBackend",
-=======
     # "organization.core.backend.OrganizationLDAPBackend",
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
     "mezzanine.core.auth_backends.MezzanineBackend",
     "guardian.backends.ObjectPermissionBackend",
 )
 
-<<<<<<< HEAD
-#########
-# PATHS #
-#########
-
-# Full filesystem path to the project.
-PROJECT_APP_PATH = os.path.dirname(os.path.abspath(__file__))
-PROJECT_APP = os.path.basename(PROJECT_APP_PATH)
-PROJECT_ROOT = BASE_DIR = os.path.dirname(PROJECT_APP_PATH)
-
-# Every cache key will get prefixed with this value - here we set it to
-# the name of the directory the project is in to try and use something
-# project specific.
-CACHE_MIDDLEWARE_KEY_PREFIX = PROJECT_APP
-
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
-STATIC_URL = "/static/"
-
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
-# STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
-STATIC_ROOT = '/srv/static/'
-
-STATICFILES_DIRS = [
-    # '/srv/lib/mezzanine-organization/organization/static'
-]
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = "/media/"
-
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-# MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
-MEDIA_ROOT = '/srv/media/'
-=======
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
 ##########
 # LOCALE #
@@ -166,14 +102,6 @@ LANGUAGES = (
     #('fr', _('French')),
 )
 
-<<<<<<< HEAD
-LOCALE_PATHS = (
-    # os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale/'),
-    # os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/ircam-www-theme/locale/'),
-)
-
-=======
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 #############
 # DATABASES #
 #############
@@ -189,7 +117,6 @@ DATABASES = {
 }
 
 
-<<<<<<< HEAD
 ################
 # APPLICATIONS #
 ################
@@ -306,11 +233,6 @@ TEMPLATES = [{
                                 ],
                         }
             }]
-=======
-##########################################
-# CUSTOM MEZZANINE ORGANIZATION SETTINGS #
-##########################################
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
@@ -324,7 +246,6 @@ SEARCH_MODEL_CHOICES += ()
 PAGES_MODELS += ()
 
 
-<<<<<<< HEAD
 #########################
 # ADMIN MENU            #
 #########################
@@ -459,13 +380,6 @@ if not os.path.exists(PROJECT_DEMOS_DIR):
 FORMAT_MODULE_PATH = [
     'organization.formats',
 ]
-=======
-################
-# APPLICATIONS #
-################
-
-INSTALLED_APPS += []
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
 CUSTOM_MODULES = False
 
@@ -481,62 +395,6 @@ if CUSTOM_MODULES:
 HOST_THEMES = [
     ('example.com', 'ircam_www_theme'),
 ]
-
-<<<<<<< HEAD
-# HIJACK
-HIJACK_DISPLAY_WARNING = False
-HIJACK_ALLOW_GET_REQUESTS = False
-HIJACK_REGISTER_ADMIN = False
-SILENCED_SYSTEM_CHECKS = ["hijack_admin.E001"]
-
-if DEBUG :
-    SILENCED_SYSTEM_CHECKS = []
-    HIJACK_LOGIN_REDIRECT_URL = reverse_lazy('profile_update')
-    HIJACK_LOGOUT_REDIRECT_URL = "/"
-    HIJACK_ALLOW_GET_REQUESTS =  True
-    HIJACK_DISPLAY_WARNING = True
-    HIJACK_REGISTER_ADMIN = True
-
-
-
-##############################################
-##########  AUTHENTIFICATION LDAP  ###########
-##############################################
-# You can use LDAP Authentication by using 'Django Auth LDAP'#
-
-# 1 - Activate logging :
-# logging
-if DEBUG:
-    logger = logging.getLogger('django_auth_ldap')
-    logger.addHandler(logging.StreamHandler())
-    logger.setLevel(logging.DEBUG)
-
-# 2 - Specify your LDAP settings :
-AUTH_LDAP_SERVER_URI = "ldap://clusterldap1.ircam.fr"
-AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=ircam,dc=fr", ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
-
-# Set up the basic group parameters.
-AUTH_LDAP_GROUP_SEARCH = LDAPSearch("ou=People,dc=ircam,dc=fr",
-    ldap.SCOPE_SUBTREE, "(objectClass=groupOfNames)"
-)
-AUTH_LDAP_GROUP_TYPE = GroupOfNamesType(name_attr="cn")
-
-# Populate the Django user from the LDAP directory.
-AUTH_LDAP_USER_ATTR_MAP = {
-    "first_name": "givenName",
-    "last_name": "sn",
-    "email": "mail"
-}
-
-# This is the default, but I like to be explicit.
-AUTH_LDAP_ALWAYS_UPDATE_USER = True
-
-# Use LDAP group membership to calculate group permissions.
-AUTH_LDAP_FIND_GROUP_PERMS = True
-
-# Cache group memberships for an hour to minimize LDAP traffic
-AUTH_LDAP_CACHE_GROUPS = True
-AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
 
 ##################
 #### GUARDIAN ####
@@ -560,8 +418,6 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
-=======
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
 ##################
 # LOCAL SETTINGS #
@@ -576,7 +432,6 @@ except ImportError as e:
     if "local_settings" not in str(e):
         raise e
 
-<<<<<<< HEAD
 
 ##################
 # ULYSSES SETTINGS #
@@ -588,8 +443,6 @@ except ImportError as e:
     if "ulysses_settings" not in str(e):
         raise e
 
-=======
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 ####################
 # DYNAMIC SETTINGS #
 ####################
@@ -608,12 +461,8 @@ else:
     set_dynamic_settings(globals())
 
 
-<<<<<<< HEAD
 move = lambda n, k, i: n.insert(i, n.pop(n.index(k)))
 try:
     move(INSTALLED_APPS, "ulysses.system", len(INSTALLED_APPS))
 except ValueError:
     pass
-=======
-
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017

@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-
-app:
-    command: /bin/sh bin/app.sh
-    ports:
-        - "8041:8000"
-=======
 version: '2'
 services:
     app:
         command: /bin/sh bin/app.sh
+    ports:
+        - "8041:8000"
 
->>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
