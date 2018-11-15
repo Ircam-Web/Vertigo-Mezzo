@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2016-2017 Ircam
-# Copyright (c) 2016-2017 Guillaume Pellerin
-# Copyright (c) 2016-2017 Emilie Zawadzki
+# Copyright (c) 2016-2018 Ircam
+# Copyright (c) 2016-2018 Guillaume Pellerin
+# Copyright (c) 2016-2018 Emilie Zawadzki
 
 # This file is part of mezzanine-organization.
 
@@ -38,6 +38,7 @@ warnings.filterwarnings(
 
 SILENCED_SYSTEM_CHECKS = ['fields.W342',]
 
+<<<<<<< HEAD
 
 ###################################
 # MEZZANINE ORGANIZATION SETTINGS #
@@ -53,81 +54,19 @@ except ImportError as e:
 ######################
 # MEZZANINE SETTINGS #
 ######################
+=======
+SECRET_KEY = "H7665jhuyUTGuhuUYT6è-ertyezçuàçi'09Iikrpokfàçir"
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
-# The following settings are already defined with default values in
-# the ``defaults.py`` module within each of Mezzanine's apps, but are
-# common enough to be put here, commented out, for conveniently
-# overriding. Please consult the settings documentation for a full list
-# of settings Mezzanine implements:
-# http://mezzanine.jupo.org/docs/configuration.html#default-settings
+###################################
+# MEZZANINE ORGANIZATION SETTINGS #
+###################################
+try:
+    from organization.settings import *
+except ImportError as e:
+    if "organization.settings" not in str(e):
+        raise e
 
-# Controls the ordering and grouping of the admin menu.
-#
-# ADMIN_MENU_ORDER = (
-#     ("Content", ("pages.Page", "blog.BlogPost",
-#        "generic.ThreadedComment", (_("Media Library"), "fb_browse"),)),
-#     (_("Shop"), ("shop.Product", "shop.ProductOption", "shop.DiscountCode",
-#        "shop.Sale", "shop.Order")),
-#     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
-#     ("Users", ("auth.User", "auth.Group",)),
-# )
-
-# A three item sequence, each containing a sequence of template tags
-# used to render the admin dashboard.
-#
-# DASHBOARD_TAGS = (
-#     ("blog_tags.quick_blog", "mezzanine_tags.app_list"),
-#     ("comment_tags.recent_comments",),
-#     ("mezzanine_tags.recent_actions",),
-# )
-
-# A sequence of templates used by the ``page_menu`` template tag. Each
-# item in the sequence is a three item sequence, containing a unique ID
-# for the template, a label for the template, and the template path.
-# These templates are then available for selection when editing which
-# menus a page should appear in. Note that if a menu template is used
-# that doesn't appear in this setting, all pages will appear in it.
-
-PAGE_MENU_TEMPLATES = (
-    (1, _("Action"), "pages/menus/action.html"),
-    (2, _("Departement"), "pages/menus/header.html"),
-    (3, _("Footer vertical"), "pages/menus/footer_vertical.html"),
-    (4, _("Footer horizontal"), "pages/menus/footer_horizontal.html"),
-    (5, _("Magazine"), "pages/menus/magazine.html"),
-    (6, _("Vous êtes"), "pages/menus/vous_etes.html"),
-    (7, _("Personnes"), "pages/menus/tree.html"),
-)
-
-MENU_PERSON_ID = 7
-
-# A sequence of fields that will be injected into Mezzanine's (or any
-# library's) models. Each item in the sequence is a four item sequence.
-# The first two items are the dotted path to the model and its field
-# name to be added, and the dotted path to the field class to use for
-# the field. The third and fourth items are a sequence of positional
-# args and a dictionary of keyword args, to use when creating the
-# field instance. When specifying the field class, the path
-# ``django.models.db.`` can be omitted for regular Django model fields.
-#
-
-# EXTRA_MODEL_FIELDS = (
-#  )
-
-EXTRA_MODEL_FIELDS = (
-    )
-
-# Setting to turn on featured images for blog posts. Defaults to False.
-#
-BLOG_USE_FEATURED_IMAGE = True
-
-# If True, the django-modeltranslation will be added to the
-# INSTALLED_APPS setting.
-USE_MODELTRANSLATION = True
-
-# SEARCH_MODEL_CHOICES = ('shop.Product',)
-
-COMMENTS_ACCOUNT_REQUIRED = True
-RATINGS_ACCOUNT_REQUIRED = True
 
 ########################
 # MAIN DJANGO SETTINGS #
@@ -161,12 +100,17 @@ USE_I18N = True
 USE_L10N = True
 
 AUTHENTICATION_BACKENDS = (
+<<<<<<< HEAD
 #   Activate Auth LDAP :
 #   "organization.core.backend.OrganizationLDAPBackend",
+=======
+    # "organization.core.backend.OrganizationLDAPBackend",
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
     "mezzanine.core.auth_backends.MezzanineBackend",
     "guardian.backends.ObjectPermissionBackend",
 )
 
+<<<<<<< HEAD
 #########
 # PATHS #
 #########
@@ -205,13 +149,12 @@ MEDIA_URL = "/media/"
 # Example: "/home/media/media.lawrence.com/media/"
 # MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 MEDIA_ROOT = '/srv/media/'
+=======
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
-# Package/module name to import the root urlpatterns from for the project.
-ROOT_URLCONF = "urls"
-
-#########
+##########
 # LOCALE #
-#########
+##########
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -223,27 +166,30 @@ LANGUAGES = (
     #('fr', _('French')),
 )
 
+<<<<<<< HEAD
 LOCALE_PATHS = (
     # os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale/'),
     # os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/ircam-www-theme/locale/'),
 )
 
+=======
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 #############
 # DATABASES #
 #############
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': os.environ.get('DB_ENV_POSTGRES_PASSWORD'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': 'db',
         'PORT': '5432',
     },
 }
 
 
+<<<<<<< HEAD
 ################
 # APPLICATIONS #
 ################
@@ -360,116 +306,25 @@ TEMPLATES = [{
                                 ],
                         }
             }]
+=======
+##########################################
+# CUSTOM MEZZANINE ORGANIZATION SETTINGS #
+##########################################
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
 # response phase the middleware will be applied in reverse order.
-MIDDLEWARE_CLASSES = (
-    # 'sandbox.middleware.StartupMiddleware',
-    "mezzanine.core.middleware.UpdateCacheMiddleware",
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    # Uncomment if using internationalisation or localisation
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "mezzanine.core.request.CurrentRequestMiddleware",
-    "mezzanine.core.middleware.RedirectFallbackMiddleware",
-    "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",
-    "mezzanine.core.middleware.SitePermissionMiddleware",
-    # Uncomment the following if using any of the SSL settings:
-    # "mezzanine.core.middleware.SSLRedirectMiddleware",
-    "mezzanine.pages.middleware.PageMiddleware",
-    # "mezzanine.core.middleware.FetchFromCacheMiddleware",
-    "cartridge.shop.middleware.ShopMiddleware",
-)
+MIDDLEWARE_CLASSES += ()
 
-# Store these package names here as they may change in the future since
-# at the moment we are using custom forks of them.
-PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
-PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
+STATICFILES_FINDERS += ()
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    'djangobower.finders.BowerFinder',
-)
+SEARCH_MODEL_CHOICES += ()
 
-GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
-}
-
-SLUGIFY = 'django.template.defaultfilters.slugify'
+PAGES_MODELS += ()
 
 
-########
-# DRUM #
-########
-
-# Drum-specific Mezzanine settings
-# ACCOUNTS_PROFILE_MODEL = "links.Profile"
-# SITE_TITLE = "IRCAM"
-RATINGS_RANGE = (-1, 1)
-COMMENTS_ACCOUNT_REQUIRED = True
-RATINGS_ACCOUNT_REQUIRED = True
-ACCOUNTS_PROFILE_VIEWS_ENABLED = False
-# SEARCH_MODEL_CHOICES = ("links.Link",)
-
-# Drum settings
-ALLOWED_DUPLICATE_LINK_HOURS = 24 * 7 * 3
-ITEMS_PER_PAGE = 20
-LINK_REQUIRED = False
-AUTO_TAG = True
-
-#########################
-# FILE BROWSER          #
-#########################
-
-# The numeric mode to set newly-uploaded files to. The value should be
-# a mode you'd pass directly to os.chmod.
-FILE_UPLOAD_PERMISSIONS = 0o664
-FILE_UPLOAD_TEMP_DIR = '/srv/media/uploads/tmp/'
-if not os.path.exists(FILE_UPLOAD_TEMP_DIR):
-    os.makedirs(FILE_UPLOAD_TEMP_DIR)
-
-MAX_UPLOAD_SIZE = 512000000
-MAX_UPLOAD_SIZE_FRONT = 10485760
-FILEBROWSER_MAX_UPLOAD_SIZE = 512000000
-
-
-# EXTENSIONS AND FORMATS
-# Allowed Extensions for File Upload. Lower case is important.
-FILEBROWSER_EXTENSIONS = {
-    'Folder': [''],
-    'Image': ['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'],
-    'Document': ['.pdf', '.doc', '.rtf', '.txt', '.xls', '.csv', '.docx'],
-    'Video': ['.mov', '.wmv', '.mpeg', '.mpg', '.avi', '.rm'],
-    'Audio': ['.mp3', '.mp4', '.wav', '.aiff', '.midi', '.m4p']
-    }
-
-
-# Define different formats for allowed selections.
-# This has to be a subset of EXTENSIONS.
-# e.g., add ?type=image to the browse-URL ...
-FILEBROWSER_SELECT_FORMATS = {
-    'File': ['Folder', 'Document'],
-    'Image': ['Image'],
-    'Media': ['Video', 'Audio'],
-    'Audio': ['Audio'],
-    'Document': ['Document'],
-    # for TinyMCE we can also define lower-case items
-    'image': ['Image'],
-    'file': ['Folder', 'Image', 'Document'],
-    'media': ['Video', 'Audio'],
-    'audio': ['Audio'],
-}
-
-
+<<<<<<< HEAD
 #########################
 # ADMIN MENU            #
 #########################
@@ -604,42 +459,30 @@ if not os.path.exists(PROJECT_DEMOS_DIR):
 FORMAT_MODULE_PATH = [
     'organization.formats',
 ]
+=======
+################
+# APPLICATIONS #
+################
 
+INSTALLED_APPS += []
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
-#########################
-# OPTIONAL APPLICATIONS #
-#########################
+CUSTOM_MODULES = False
 
-# These will be added to ``INSTALLED_APPS``, only if available.
-OPTIONAL_APPS = (
-    "django_extensions",
-    "compressor",
-    PACKAGE_NAME_FILEBROWSER,
-    PACKAGE_NAME_GRAPPELLI,
-)
+if CUSTOM_MODULES:
+    INSTALLED_APPS += [
+        "organization.custom",
+    ]
 
-if DEBUG:
-    OPTIONAL_APPS += ('debug_toolbar', 'hijack_admin',)
-    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+##########
+# THEMES #
+##########
 
-INTERNAL_IPS = ['127.0.0.1', '172.17.0.1']
-
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
-DEBUG_TOOLBAR_PANELS = [
-    'debug_toolbar.panels.versions.VersionsPanel',
-    'debug_toolbar.panels.timer.TimerPanel',
-    'debug_toolbar.panels.settings.SettingsPanel',
-    'debug_toolbar.panels.headers.HeadersPanel',
-    'debug_toolbar.panels.request.RequestPanel',
-    'debug_toolbar.panels.sql.SQLPanel',
-    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-    'debug_toolbar.panels.templates.TemplatesPanel',
-    'debug_toolbar.panels.cache.CachePanel',
-    'debug_toolbar.panels.signals.SignalsPanel',
-    'debug_toolbar.panels.logging.LoggingPanel',
-    'debug_toolbar.panels.redirects.RedirectsPanel',
+HOST_THEMES = [
+    ('example.com', 'ircam_www_theme'),
 ]
 
+<<<<<<< HEAD
 # HIJACK
 HIJACK_DISPLAY_WARNING = False
 HIJACK_ALLOW_GET_REQUESTS = False
@@ -717,6 +560,8 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+=======
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
 ##################
 # LOCAL SETTINGS #
@@ -731,6 +576,7 @@ except ImportError as e:
     if "local_settings" not in str(e):
         raise e
 
+<<<<<<< HEAD
 
 ##################
 # ULYSSES SETTINGS #
@@ -742,6 +588,8 @@ except ImportError as e:
     if "ulysses_settings" not in str(e):
         raise e
 
+=======
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 ####################
 # DYNAMIC SETTINGS #
 ####################
@@ -760,8 +608,12 @@ else:
     set_dynamic_settings(globals())
 
 
+<<<<<<< HEAD
 move = lambda n, k, i: n.insert(i, n.pop(n.index(k)))
 try:
     move(INSTALLED_APPS, "ulysses.system", len(INSTALLED_APPS))
 except ValueError:
     pass
+=======
+
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017

@@ -18,6 +18,7 @@ uid='www-data'
 gid='www-data'
 # patterns='*.js;*.css;*.jpg;*.jpeg;*.gif;*.png;*.svg;*.ttf;*.eot;*.woff;*.woff2'
 
+<<<<<<< HEAD
 # Staging
 # pip install pandas xlwt
 # pip install -U https://forge.ircam.fr/p/django-eve/source/download/dev/
@@ -28,6 +29,13 @@ gid='www-data'
 # /usr/bin/yes | pip uninstall django-orderable
 # pip install bleach==1.5.0 django==1.9.11
 # pip install django-postman==3.6.1 django-siteflags
+=======
+# Install a package in development mode
+# without rebuidling docker image.
+# You need at first checkout your sources in 'lib' folder
+# in host project side, then run :
+# pip install -e /srv/lib/mypackage...
+>>>>>>> d2f5a5d19e2598c752d962d472d2630e31c60017
 
 # Install (staging) libs
 # /srv/bin/build/local/setup_lib.sh
@@ -36,7 +44,7 @@ gid='www-data'
 sh $app/bin/wait.sh
 
 # django setup
-python $manage wait-for-db
+#python $manage wait-for-db
 
 # initial setup
 if [ ! -f .init ]; then
