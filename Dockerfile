@@ -1,4 +1,4 @@
-FROM ircamweb/mezzo:latest-dev
+FROM ircamweb/mezzo:latest
 
 WORKDIR /srv
 

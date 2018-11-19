@@ -1,7 +1,7 @@
 version: '2'
 services:
     app:
-        image: ircamweb/mezzo:latest
+        build: .
         command: /bin/sh bin/app.sh --runserver
         ports:
             - "9022:8000"
