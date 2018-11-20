@@ -123,11 +123,9 @@ DATABASES = {
 
 INSTALLED_APPS = [
 
-    "organization_themes",
-    # "organization_themes.ircam-www-theme",
-    "organization_themes.vertigo-themes.vertigo_ircam_fr",
-    "organization_themes.vertigo-themes.vertigo_starts_eu",
-    "organization_themes.vertigo-themes.www_starts_eu",
+    "vertigo_ircam_fr",
+    "vertigo_starts_eu",
+    "www_starts_eu",
 
     "modeltranslation",
     "dal",
@@ -184,12 +182,6 @@ if CUSTOM_MODULES:
     INSTALLED_APPS += [
         "organization.custom",
     ]
-
-
-
-HOST_THEMES = [
-    ('example.com', 'organization_themes.ircam-www-theme'),
-]
 
 BOWER_COMPONENTS_ROOT = '/srv/bower/'
 BOWER_PATH = '/usr/local/bin/bower'
@@ -393,13 +385,13 @@ if CUSTOM_MODULES:
 ##########
 
 HOST_THEMES = [
-    ('vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
-    ('vertigo2017.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
-    ('vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
-    ('www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
-    ('sandbox.vertigo.ircam.fr', 'organization_themes.vertigo-themes.vertigo_ircam_fr'),
-    ('sandbox.vertigo.starts.eu', 'organization_themes.vertigo-themes.vertigo_starts_eu'),
-    ('sandbox.www.starts.eu', 'organization_themes.vertigo-themes.www_starts_eu'),
+    ('vertigo.ircam.fr', 'vertigo_ircam_fr'),
+    ('vertigo2017.ircam.fr', 'vertigo_ircam_fr'),
+    ('vertigo.starts.eu', 'vertigo_starts_eu'),
+    ('www.starts.eu', 'www_starts_eu'),
+    ('sandbox.vertigo.ircam.fr', 'vertigo_ircam_fr'),
+    ('sandbox.vertigo.starts.eu', 'vertigo_starts_eu'),
+    ('sandbox.www.starts.eu', 'www_starts_eu'),
 ]
 
 ##################
