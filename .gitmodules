@@ -43,3 +43,6 @@
     branch-master = vertigo-master
     branch-dev = vertigo-dev
     ignore = dirty
+[submodule "lib/vertigo-themes"]
+	path = lib/vertigo-themes
+	url = git@github.com:Ircam-Web/vertigo-themes.git
