@@ -71,7 +71,7 @@ INSTALLED_APPS += [
     'sorl.thumbnail',
     'rest_framework',
     'snowpenguin.django.recaptcha2',
-    
+
     # Utilities
     'ulysses.system',
     'ulysses.super_admin',
@@ -139,7 +139,7 @@ BROKER_HOST = "broker"
 BROKER_PORT = 5672
 BROKER_USER = "guest"
 BROKER_PASSWORD = "guest"
-BROKER_VHOST = "/" 
+BROKER_VHOST = "/"
 
 CELERY_RESULT_BACKEND = "database"
 CELERY_RESULT_DBURI = "mysql://ulysses@db/ulysses_db"
