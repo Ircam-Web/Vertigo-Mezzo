@@ -25,7 +25,7 @@ services:
         volumes:
             - /data/media:/srv/media
             - ./var/backup:/srv/backup
-            - ./var/static:/srv/static
+            - /data/static:/srv/static
             - ./var/log/uwsgi:/var/log/uwsgi
             - ./var/log/nginx:/var/log/nginx
             - ./var/log/app:/var/log/app
