@@ -60,7 +60,7 @@ sitemaps = {
 # to the project's homepage.
 
 urlpatterns = [
-    
+
     # Change the admin prefix here to use an alternate URL for the
     # admin interface, which would be marginally more secure.
     url("^mezzo-admin/", include(admin.site.urls)),
@@ -76,10 +76,10 @@ urlpatterns += [
 
     # # App urls
     url("^", include('organization.urls')),
-    
+
     # Ulysses
     url('^', include('ulysses.urls')),
-    
+
     url("^styles/$", direct_to_template, {"template": "styles.html"}, name="styles"),
 
     # sitemap

@@ -9,12 +9,6 @@
     branch-master = vertigo-master
     branch-dev = vertigo-dev
     ignore = dirty
-[submodule "lib/mezzanine-organization-themes"]
-	path = lib/mezzanine-organization-themes
-	url = https://github.com/Ircam-Web/mezzanine-organization-themes.git
-    branch-master = master
-    branch-dev = dev
-    ignore = dirty
 [submodule "bin"]
 	path = bin
 	url = https://github.com/Ircam-Web/mezzo-bin.git
@@ -25,7 +19,7 @@
 	path = lib/grappelli-safe
 	url = https://github.com/yomguy/grappelli-safe.git
     branch-master = dynamic_stacked
-    branch-dev = dynamic_stacked
+    branch-dev = dynamic_stacked-dev
     ignore = dirty
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
@@ -47,6 +41,12 @@
 [submodule "lib/django-ulysses"]
 	path = lib/django-ulysses
     url = https://forge-2.ircam.fr/POW/django-ulysses.git
+    branch-master = vertigo-master
+    branch-dev = vertigo-dev
+    ignore = dirty
+[submodule "lib/vertigo-themes"]
+	path = lib/vertigo-themes
+	url = git@github.com:Ircam-Web/vertigo-themes.git
     branch-master = vertigo-master
     branch-dev = vertigo-dev
     ignore = dirty

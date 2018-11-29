@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2016-2017 Ircam
-# Copyright (c) 2016-2017 Guillaume Pellerin
-# Copyright (c) 2016-2017 Emilie Zawadzki
+# Copyright (c) 2016-2018 Ircam
+# Copyright (c) 2016-2018 Guillaume Pellerin
+# Copyright (c) 2016-2018 Emilie Zawadzki
 
 # This file is part of mezzanine-organization.
 
@@ -38,96 +38,17 @@ warnings.filterwarnings(
 
 SILENCED_SYSTEM_CHECKS = ['fields.W342',]
 
+SECRET_KEY = "H7665jhuyUTGuhuUYT6è-ertyezçuàçi'09Iikrpokfàçir"
 
 ###################################
 # MEZZANINE ORGANIZATION SETTINGS #
 ###################################
-
 try:
     from organization.settings import *
 except ImportError as e:
     if "organization.settings" not in str(e):
         raise e
 
-
-######################
-# MEZZANINE SETTINGS #
-######################
-
-# The following settings are already defined with default values in
-# the ``defaults.py`` module within each of Mezzanine's apps, but are
-# common enough to be put here, commented out, for conveniently
-# overriding. Please consult the settings documentation for a full list
-# of settings Mezzanine implements:
-# http://mezzanine.jupo.org/docs/configuration.html#default-settings
-
-# Controls the ordering and grouping of the admin menu.
-#
-# ADMIN_MENU_ORDER = (
-#     ("Content", ("pages.Page", "blog.BlogPost",
-#        "generic.ThreadedComment", (_("Media Library"), "fb_browse"),)),
-#     (_("Shop"), ("shop.Product", "shop.ProductOption", "shop.DiscountCode",
-#        "shop.Sale", "shop.Order")),
-#     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
-#     ("Users", ("auth.User", "auth.Group",)),
-# )
-
-# A three item sequence, each containing a sequence of template tags
-# used to render the admin dashboard.
-#
-# DASHBOARD_TAGS = (
-#     ("blog_tags.quick_blog", "mezzanine_tags.app_list"),
-#     ("comment_tags.recent_comments",),
-#     ("mezzanine_tags.recent_actions",),
-# )
-
-# A sequence of templates used by the ``page_menu`` template tag. Each
-# item in the sequence is a three item sequence, containing a unique ID
-# for the template, a label for the template, and the template path.
-# These templates are then available for selection when editing which
-# menus a page should appear in. Note that if a menu template is used
-# that doesn't appear in this setting, all pages will appear in it.
-
-PAGE_MENU_TEMPLATES = (
-    (1, _("Action"), "pages/menus/action.html"),
-    (2, _("Departement"), "pages/menus/header.html"),
-    (3, _("Footer vertical"), "pages/menus/footer_vertical.html"),
-    (4, _("Footer horizontal"), "pages/menus/footer_horizontal.html"),
-    (5, _("Magazine"), "pages/menus/magazine.html"),
-    (6, _("Vous êtes"), "pages/menus/vous_etes.html"),
-    (7, _("Personnes"), "pages/menus/tree.html"),
-)
-
-MENU_PERSON_ID = 7
-
-# A sequence of fields that will be injected into Mezzanine's (or any
-# library's) models. Each item in the sequence is a four item sequence.
-# The first two items are the dotted path to the model and its field
-# name to be added, and the dotted path to the field class to use for
-# the field. The third and fourth items are a sequence of positional
-# args and a dictionary of keyword args, to use when creating the
-# field instance. When specifying the field class, the path
-# ``django.models.db.`` can be omitted for regular Django model fields.
-#
-
-# EXTRA_MODEL_FIELDS = (
-#  )
-
-EXTRA_MODEL_FIELDS = (
-    )
-
-# Setting to turn on featured images for blog posts. Defaults to False.
-#
-BLOG_USE_FEATURED_IMAGE = True
-
-# If True, the django-modeltranslation will be added to the
-# INSTALLED_APPS setting.
-USE_MODELTRANSLATION = True
-
-# SEARCH_MODEL_CHOICES = ('shop.Product',)
-
-COMMENTS_ACCOUNT_REQUIRED = True
-RATINGS_ACCOUNT_REQUIRED = True
 
 ########################
 # MAIN DJANGO SETTINGS #
@@ -151,7 +72,7 @@ USE_TZ = True
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 
 SITE_ID = 2
 
@@ -161,57 +82,15 @@ USE_I18N = True
 USE_L10N = True
 
 AUTHENTICATION_BACKENDS = (
-#   Activate Auth LDAP :
-#   "organization.core.backend.OrganizationLDAPBackend",
+    # "organization.core.backend.OrganizationLDAPBackend",
     "mezzanine.core.auth_backends.MezzanineBackend",
     "guardian.backends.ObjectPermissionBackend",
 )
 
-#########
-# PATHS #
-#########
 
-# Full filesystem path to the project.
-PROJECT_APP_PATH = os.path.dirname(os.path.abspath(__file__))
-PROJECT_APP = os.path.basename(PROJECT_APP_PATH)
-PROJECT_ROOT = BASE_DIR = os.path.dirname(PROJECT_APP_PATH)
-
-# Every cache key will get prefixed with this value - here we set it to
-# the name of the directory the project is in to try and use something
-# project specific.
-CACHE_MIDDLEWARE_KEY_PREFIX = PROJECT_APP
-
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
-STATIC_URL = "/static/"
-
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
-# STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
-STATIC_ROOT = '/srv/static/'
-
-STATICFILES_DIRS = [
-    # '/srv/lib/mezzanine-organization/organization/static'
-]
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = "/media/"
-
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-# MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
-MEDIA_ROOT = '/srv/media/'
-
-# Package/module name to import the root urlpatterns from for the project.
-ROOT_URLCONF = "urls"
-
-#########
+##########
 # LOCALE #
-#########
+##########
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -223,21 +102,15 @@ LANGUAGES = (
     #('fr', _('French')),
 )
 
-LOCALE_PATHS = (
-    # os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization/organization/locale/'),
-    # os.path.join(PROJECT_ROOT, 'lib/mezzanine-organization-themes/organization_themes/ircam-www-theme/locale/'),
-)
-
 #############
 # DATABASES #
 #############
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': os.environ.get('DB_ENV_POSTGRES_PASSWORD'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': 'db',
         'PORT': '5432',
     },
@@ -250,11 +123,9 @@ DATABASES = {
 
 INSTALLED_APPS = [
 
-    "organization_themes",
-    # "organization_themes.ircam-www-theme",
-    "organization_themes.vertigo-themes.vertigo_ircam_fr",
-    "organization_themes.vertigo-themes.vertigo_starts_eu",
-    "organization_themes.vertigo-themes.www_starts_eu",
+    "vertigo_ircam_fr",
+    "vertigo_starts_eu",
+    "www_starts_eu",
 
     "modeltranslation",
     "dal",
@@ -312,12 +183,6 @@ if CUSTOM_MODULES:
         "organization.custom",
     ]
 
-
-
-HOST_THEMES = [
-    ('example.com', 'organization_themes.ircam-www-theme'),
-]
-
 BOWER_COMPONENTS_ROOT = '/srv/bower/'
 BOWER_PATH = '/usr/local/bin/bower'
 BOWER_INSTALLED_APPS = (
@@ -364,110 +229,13 @@ TEMPLATES = [{
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
 # response phase the middleware will be applied in reverse order.
-MIDDLEWARE_CLASSES = (
-    # 'sandbox.middleware.StartupMiddleware',
-    "mezzanine.core.middleware.UpdateCacheMiddleware",
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    # Uncomment if using internationalisation or localisation
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "mezzanine.core.request.CurrentRequestMiddleware",
-    "mezzanine.core.middleware.RedirectFallbackMiddleware",
-    "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",
-    "mezzanine.core.middleware.SitePermissionMiddleware",
-    # Uncomment the following if using any of the SSL settings:
-    # "mezzanine.core.middleware.SSLRedirectMiddleware",
-    "mezzanine.pages.middleware.PageMiddleware",
-    # "mezzanine.core.middleware.FetchFromCacheMiddleware",
-    "cartridge.shop.middleware.ShopMiddleware",
-)
+MIDDLEWARE_CLASSES += ()
 
-# Store these package names here as they may change in the future since
-# at the moment we are using custom forks of them.
-PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
-PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
+STATICFILES_FINDERS += ()
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    'djangobower.finders.BowerFinder',
-)
+SEARCH_MODEL_CHOICES += ()
 
-GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
-}
-
-SLUGIFY = 'django.template.defaultfilters.slugify'
-
-
-########
-# DRUM #
-########
-
-# Drum-specific Mezzanine settings
-# ACCOUNTS_PROFILE_MODEL = "links.Profile"
-# SITE_TITLE = "IRCAM"
-RATINGS_RANGE = (-1, 1)
-COMMENTS_ACCOUNT_REQUIRED = True
-RATINGS_ACCOUNT_REQUIRED = True
-ACCOUNTS_PROFILE_VIEWS_ENABLED = False
-# SEARCH_MODEL_CHOICES = ("links.Link",)
-
-# Drum settings
-ALLOWED_DUPLICATE_LINK_HOURS = 24 * 7 * 3
-ITEMS_PER_PAGE = 20
-LINK_REQUIRED = False
-AUTO_TAG = True
-
-#########################
-# FILE BROWSER          #
-#########################
-
-# The numeric mode to set newly-uploaded files to. The value should be
-# a mode you'd pass directly to os.chmod.
-FILE_UPLOAD_PERMISSIONS = 0o664
-FILE_UPLOAD_TEMP_DIR = '/srv/media/uploads/tmp/'
-if not os.path.exists(FILE_UPLOAD_TEMP_DIR):
-    os.makedirs(FILE_UPLOAD_TEMP_DIR)
-
-MAX_UPLOAD_SIZE = 512000000
-MAX_UPLOAD_SIZE_FRONT = 10485760
-FILEBROWSER_MAX_UPLOAD_SIZE = 512000000
-
-
-# EXTENSIONS AND FORMATS
-# Allowed Extensions for File Upload. Lower case is important.
-FILEBROWSER_EXTENSIONS = {
-    'Folder': [''],
-    'Image': ['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'],
-    'Document': ['.pdf', '.doc', '.rtf', '.txt', '.xls', '.csv', '.docx'],
-    'Video': ['.mov', '.wmv', '.mpeg', '.mpg', '.avi', '.rm'],
-    'Audio': ['.mp3', '.mp4', '.wav', '.aiff', '.midi', '.m4p']
-    }
-
-
-# Define different formats for allowed selections.
-# This has to be a subset of EXTENSIONS.
-# e.g., add ?type=image to the browse-URL ...
-FILEBROWSER_SELECT_FORMATS = {
-    'File': ['Folder', 'Document'],
-    'Image': ['Image'],
-    'Media': ['Video', 'Audio'],
-    'Audio': ['Audio'],
-    'Document': ['Document'],
-    # for TinyMCE we can also define lower-case items
-    'image': ['Image'],
-    'file': ['Folder', 'Image', 'Document'],
-    'media': ['Video', 'Audio'],
-    'audio': ['Audio'],
-}
+PAGES_MODELS += ()
 
 
 #########################
@@ -587,7 +355,7 @@ EVENT_USE_FEATURED_IMAGE = True
 EVENT_EXCLUDE_TAG_LIST = [ ]
 PAST_EVENTS = True
 
-BLOG_SLUG = 'article'
+BLOG_SLUG = ''
 BLOG_POST_PER_PAGE = 200
 ARTICLE_PER_PAGE = 10
 MEDIA_PER_PAGE = 9
@@ -605,95 +373,26 @@ FORMAT_MODULE_PATH = [
     'organization.formats',
 ]
 
+CUSTOM_MODULES = False
 
-#########################
-# OPTIONAL APPLICATIONS #
-#########################
+if CUSTOM_MODULES:
+    INSTALLED_APPS += [
+        "organization.custom",
+    ]
 
-# These will be added to ``INSTALLED_APPS``, only if available.
-OPTIONAL_APPS = (
-    "django_extensions",
-    "compressor",
-    PACKAGE_NAME_FILEBROWSER,
-    PACKAGE_NAME_GRAPPELLI,
-)
+##########
+# THEMES #
+##########
 
-if DEBUG:
-    OPTIONAL_APPS += ('debug_toolbar', 'hijack_admin',)
-    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-
-INTERNAL_IPS = ['127.0.0.1', '172.17.0.1']
-
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
-DEBUG_TOOLBAR_PANELS = [
-    'debug_toolbar.panels.versions.VersionsPanel',
-    'debug_toolbar.panels.timer.TimerPanel',
-    'debug_toolbar.panels.settings.SettingsPanel',
-    'debug_toolbar.panels.headers.HeadersPanel',
-    'debug_toolbar.panels.request.RequestPanel',
-    'debug_toolbar.panels.sql.SQLPanel',
-    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-    'debug_toolbar.panels.templates.TemplatesPanel',
-    'debug_toolbar.panels.cache.CachePanel',
-    'debug_toolbar.panels.signals.SignalsPanel',
-    'debug_toolbar.panels.logging.LoggingPanel',
-    'debug_toolbar.panels.redirects.RedirectsPanel',
+HOST_THEMES = [
+    ('vertigo.ircam.fr', 'vertigo_ircam_fr'),
+    ('vertigo2017.ircam.fr', 'vertigo_ircam_fr'),
+    ('vertigo.starts.eu', 'vertigo_starts_eu'),
+    ('www.starts.eu', 'www_starts_eu'),
+    ('sandbox.vertigo.ircam.fr', 'vertigo_ircam_fr'),
+    ('sandbox.vertigo.starts.eu', 'vertigo_starts_eu'),
+    ('sandbox.www.starts.eu', 'www_starts_eu'),
 ]
-
-# HIJACK
-HIJACK_DISPLAY_WARNING = False
-HIJACK_ALLOW_GET_REQUESTS = False
-HIJACK_REGISTER_ADMIN = False
-SILENCED_SYSTEM_CHECKS = ["hijack_admin.E001"]
-
-if DEBUG :
-    SILENCED_SYSTEM_CHECKS = []
-    HIJACK_LOGIN_REDIRECT_URL = reverse_lazy('profile_update')
-    HIJACK_LOGOUT_REDIRECT_URL = "/"
-    HIJACK_ALLOW_GET_REQUESTS =  True
-    HIJACK_DISPLAY_WARNING = True
-    HIJACK_REGISTER_ADMIN = True
-
-
-
-##############################################
-##########  AUTHENTIFICATION LDAP  ###########
-##############################################
-# You can use LDAP Authentication by using 'Django Auth LDAP'#
-
-# 1 - Activate logging :
-# logging
-if DEBUG:
-    logger = logging.getLogger('django_auth_ldap')
-    logger.addHandler(logging.StreamHandler())
-    logger.setLevel(logging.DEBUG)
-
-# 2 - Specify your LDAP settings :
-AUTH_LDAP_SERVER_URI = "ldap://clusterldap1.ircam.fr"
-AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=ircam,dc=fr", ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
-
-# Set up the basic group parameters.
-AUTH_LDAP_GROUP_SEARCH = LDAPSearch("ou=People,dc=ircam,dc=fr",
-    ldap.SCOPE_SUBTREE, "(objectClass=groupOfNames)"
-)
-AUTH_LDAP_GROUP_TYPE = GroupOfNamesType(name_attr="cn")
-
-# Populate the Django user from the LDAP directory.
-AUTH_LDAP_USER_ATTR_MAP = {
-    "first_name": "givenName",
-    "last_name": "sn",
-    "email": "mail"
-}
-
-# This is the default, but I like to be explicit.
-AUTH_LDAP_ALWAYS_UPDATE_USER = True
-
-# Use LDAP group membership to calculate group permissions.
-AUTH_LDAP_FIND_GROUP_PERMS = True
-
-# Cache group memberships for an hour to minimize LDAP traffic
-AUTH_LDAP_CACHE_GROUPS = True
-AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
 
 ##################
 #### GUARDIAN ####
