@@ -68,7 +68,7 @@ ALLOWED_HOSTS = ['*']
 TIME_ZONE = 'Europe/Paris'
 
 # If you set this to True, Django will use timezone-aware datetimes.
-USE_TZ = True
+USE_TZ = False
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False

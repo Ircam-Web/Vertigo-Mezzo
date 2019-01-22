@@ -17,8 +17,8 @@
 [submodule "lib/grappelli-safe"]
 	path = lib/grappelli-safe
 	url = git@github.com:yomguy/grappelli-safe.git
-    branch-master = dynamic_stacked
-    branch-dev = dynamic_stacked-dev
+    branch-master = dynamic_stacked-vertigo
+    branch-dev = dynamic_stacked-dev-vertigo
     ignore = dirty
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
