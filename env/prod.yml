@@ -2,6 +2,6 @@ version: '2'
 services:
     app:
         command: /bin/sh bin/app.sh
-    ports:
-        - "8041:8000"
+        ports:
+            - "8041:8000"
 
