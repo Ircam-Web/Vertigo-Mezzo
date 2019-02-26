@@ -30,7 +30,7 @@ from django.core.urlresolvers import reverse_lazy
 from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 DEBUG = True if os.environ.get('DEBUG') == 'True' else False
-DEBUG=True
+
 import warnings
 warnings.filterwarnings(
         'ignore', r"DateTimeField .* received a naive datetime",
@@ -72,7 +72,7 @@ USE_TZ = False
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 SITE_ID = 2
 
