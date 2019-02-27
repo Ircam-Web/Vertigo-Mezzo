@@ -380,6 +380,9 @@ if CUSTOM_MODULES:
         "organization.custom",
     ]
 
+# authorize models which does not heritate from Displayable
+SEARCH_MODEL_NO_DISPLAYABLE = ('organization-network.Person',)
+
 ##########
 # THEMES #
 ##########
