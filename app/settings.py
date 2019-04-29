@@ -56,7 +56,8 @@ except ImportError as e:
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.starts.eu', 'vertigo.starts.eu', 'vertigo2017.ircam.fr', 
+	'findpartner.starts.eu', 'wearsustain.starts.eu',]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
