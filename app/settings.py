@@ -402,7 +402,7 @@ HOST_THEMES = [
 ##################
 
 ANONYMOUS_USER_NAME = None
-LOGIN_REDIRECT_URL = reverse_lazy('organization-network-profile-settings')
+LOGIN_REDIRECT_URL = reverse_lazy('profile_update')
 
 ############
 # HAYSTACK #
