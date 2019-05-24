@@ -58,7 +58,6 @@ except ImportError as e:
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['www.starts.eu', 'vertigo.starts.eu', 'vertigo2017.ircam.fr', 
 	'findpartner.starts.eu', 'wearsustain.starts.eu', 'starts01.ircam.fr']
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -403,7 +402,7 @@ HOST_THEMES = [
 ##################
 
 ANONYMOUS_USER_NAME = None
-LOGIN_REDIRECT_URL = reverse_lazy('organization-network-profile-settings')
+LOGIN_REDIRECT_URL = reverse_lazy('organization-network-profile')
 
 ############
 # HAYSTACK #
