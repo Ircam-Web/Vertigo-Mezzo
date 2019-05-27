@@ -57,6 +57,11 @@ app/themes/base/static/vendors
 *.sublime-workspace
 # *.sublime-project
 
+## vim
+######
+
+.ropeproject
+
 ### OSX ###
 ###########
 
