@@ -33,7 +33,7 @@
     branch-dev = master
 [submodule "var"]
     path = var
-    url = git+ssh://git@git.forge.ircam.fr/vertigo-data.git
+    url = git@forge-2.ircam.fr:POW/vertigo-data.git
     branch-master = master
     branch-dev = master
     ignore = dirty
