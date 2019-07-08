@@ -93,3 +93,5 @@ $RECYCLE.BIN/
 
 sources
 .vscode/*
+
+local_settings.py
