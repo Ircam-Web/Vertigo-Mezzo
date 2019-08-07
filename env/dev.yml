@@ -7,3 +7,10 @@ services:
             - "9022:8000"
         env_file:
             - 'env/dev.env'
+    var:
+        volumes:
+            - ./var/media:/srv/media
+            - ./var/static:/srv/static
+
+volumes:
+    var:
