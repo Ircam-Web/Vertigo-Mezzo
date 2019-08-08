@@ -58,6 +58,8 @@ except ImportError as e:
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['www.starts.eu', 'vertigo.starts.eu', 'vertigo2017.ircam.fr',
 	'findpartner.starts.eu', 'wearsustain.starts.eu', 'starts01.ircam.fr']
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -122,7 +124,7 @@ DATABASES = {
 ################
 
 INSTALLED_APPS = [
-
+    "vertigo_components",
     "vertigo_ircam_fr",
     "vertigo_starts_eu",
     "www_starts_eu",
@@ -395,6 +397,10 @@ HOST_THEMES = [
     ('sandbox.vertigo.ircam.fr', 'vertigo_ircam_fr'),
     ('sandbox.vertigo.starts.eu', 'vertigo_starts_eu'),
     ('sandbox.www.starts.eu', 'www_starts_eu'),
+]
+
+EXTRA_THEMES_BUILD = [
+        ('vertigo_components', 'npm run build')
 ]
 
 ##################
