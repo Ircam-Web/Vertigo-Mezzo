@@ -7,3 +7,10 @@ services:
         command: /bin/sh bin/app.sh
         ports:
             - "8041:8000"
+    var:
+        volumes:
+            - ./var/media:/srv/media
+            - ./var/static:/srv/static
+
+volumes:
+    var:
