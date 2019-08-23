@@ -473,3 +473,6 @@ try:
     move(INSTALLED_APPS, "ulysses.system", len(INSTALLED_APPS))
 except ValueError:
     pass
+
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
