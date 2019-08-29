@@ -1,12 +1,9 @@
-image: docker
+image: docker:latest
 
-before_script:
-  - docker info
+services:
+  - docker:dind
 
-build_image:
+build:
+  stage: build
   script:
-    - docker build -t metis .
-
-deploy:
-  tags:
-    - shared
+    - docker build -t test .
