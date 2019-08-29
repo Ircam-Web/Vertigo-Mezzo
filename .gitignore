@@ -20,6 +20,7 @@ data
 postgres
 mysql
 tmp
+var
 
 # Installer logs
 pip-log.txt
