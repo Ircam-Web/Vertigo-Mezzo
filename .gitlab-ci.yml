@@ -3,9 +3,10 @@ image: docker
 before_script:
   - docker info
 
-tags:
-  - docker
-
 build_image:
   script:
     - docker build -t metis .
+
+deploy:
+  tags:
+    - shared
