@@ -1,16 +1,12 @@
 image: docker
 
-stages:
-  - test
-
-test:
-  stage: test
-  tags:
-    - docker
-
 before_script:
   - docker info
+  tags:
+    - docker
 
 build_image:
   script:
     - docker build -t metis .
+  tags:
+    - docker
