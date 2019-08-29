@@ -1,4 +1,10 @@
+image: docker
+
+stages:
+  - test
+
 test:
+  - stage: test
   tags:
     - docker
 
