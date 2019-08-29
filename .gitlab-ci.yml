@@ -1,5 +1,8 @@
 image: docker:latest
 
+tags:
+  - docker
+
 services:
   - docker:dind
 
