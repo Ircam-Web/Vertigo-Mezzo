@@ -1,12 +1,12 @@
 image: docker:latest
 
-tags:
-  - docker
 
 services:
   - docker:dind
 
 build:
   stage: build
+  tags:
+    - docker
   script:
     - docker build -t test .
