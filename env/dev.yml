@@ -1,7 +1,9 @@
 version: '2'
 services:
     app:
-        build: .
+        build: 
+            context: .
+            dockerfile: ./env/dev/Dockerfile
         command: /bin/sh bin/app.sh --runserver
         ports:
             - "9022:8000"

@@ -1,46 +1,46 @@
 [submodule "lib/mezzanine"]
 	path = lib/mezzanine
-	url = https://github.com/yomguy/mezzanine.git
+	url = git@github.com:yomguy/mezzanine.git
     branch-master = mezzo-vertigo-master
     branch-dev = mezzo-vertigo-dev
 [submodule "lib/mezzanine-agenda"]
 	path = lib/mezzanine-agenda
-    url = https://github.com/Ircam-Web/mezzanine-agenda.git
+    url = git@github.com:Ircam-Web/mezzanine-agenda.git
     branch-master = vertigo-master
     branch-dev = vertigo-dev
     ignore = dirty
 [submodule "bin"]
 	path = bin
-	url = https://github.com/Ircam-Web/mezzo-bin.git
+	url = git@github.com:Ircam-Web/mezzo-bin.git
     branch-master = master
     branch-dev = dev
     ignore = dirty
 [submodule "lib/grappelli-safe"]
 	path = lib/grappelli-safe
-	url = https://github.com/yomguy/grappelli-safe.git
+	url = git@github.com:yomguy/grappelli-safe.git
     branch-master = dynamic_stacked
     branch-dev = dynamic_stacked-dev
     ignore = dirty
 [submodule "lib/mezzanine-organization"]
 	path = lib/mezzanine-organization
-	url = https://github.com/Ircam-Web/mezzanine-organization.git
+	url = git@github.com:Ircam-Web/mezzanine-organization.git
     branch-master = vertigo-master
-    branch-dev = vertigo-dev
+    branch-dev = 595-profile
     ignore = dirty
 [submodule "lib/cartridge"]
 	path = lib/cartridge
-    url = https://github.com/Ircam-Web/cartridge.git
-    branch-master = master
-    branch-dev = master
+    url = git@github.com:Ircam-Web/cartridge.git
+    branch-master = vertigo-master
+    branch-dev = vertigo-master
 [submodule "lib/django-ulysses"]
 	path = lib/django-ulysses
-    url = https://forge-2.ircam.fr/POW/django-ulysses.git
+    url = git@forge-2.ircam.fr:POW/django-ulysses.git
     branch-master = vertigo-master
     branch-dev = vertigo-dev
     ignore = dirty
 [submodule "lib/vertigo-themes"]
 	path = lib/vertigo-themes
-	url = https://github.com/Ircam-Web/vertigo-themes.git
+	url = git@github.com:Ircam-Web/vertigo-themes.git
     branch-master = vertigo-master
-    branch-dev = vertigo-dev
+    branch-dev = 595-profile
     ignore = dirty

@@ -1,6 +1,16 @@
 version: '2'
 services:
     app:
+        build: 
+            context: .
+            dockerfile: ./env/staging/Dockerfile
         command: /bin/sh bin/app.sh
         ports:
-            - "8022:8000"
+            - "8041:8000"
+    var:
+        volumes:
+            - ./var/media:/srv/media
+            - ./var/static:/srv/static
+
+volumes:
+    var:
