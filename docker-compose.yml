@@ -23,9 +23,9 @@ services:
     var:
         image: debian:stretch
         volumes:
-            - /data/media:/srv/media
+            - ./var/media:/srv/media
             - ./var/backup:/srv/backup
-            - /data/static:/srv/static
+            - ./var/static:/srv/static
             - ./var/log/uwsgi:/var/log/uwsgi
             - ./var/log/nginx:/var/log/nginx
             - ./var/log/app:/var/log/app
