@@ -177,6 +177,7 @@ INSTALLED_APPS = [
     #'postman'
     'rdf_io',
     'skosxl',
+    'versatileimagefield',
 ]
 
 CUSTOM_MODULES = False
