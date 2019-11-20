@@ -1,7 +1,7 @@
 version: '2'
 services:
     app:
-        build: 
+        build:
             context: .
             dockerfile: ./env/dev/Dockerfile
         command: /bin/sh bin/app.sh --runserver
