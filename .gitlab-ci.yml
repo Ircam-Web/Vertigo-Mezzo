@@ -8,6 +8,10 @@ build:
     entrypoint: [""]
   tags:
     - docker
+  environment:
+    - CI_REGISTRY=https://mills.ircam.fr/registry/
+    - CI_REGISTRY_USER=pow
+    - CI_REGISTRY_PASSWORD=RG9pc29udm9tQ3lkS2V3SHVtRW10T3ZEZWtKaWF2eW8K
   script:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
     - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile  --no-push
