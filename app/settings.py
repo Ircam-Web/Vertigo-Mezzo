@@ -77,7 +77,7 @@ USE_TZ = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 # SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
-SITE_ID = 2
+SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -178,6 +178,7 @@ INSTALLED_APPS = [
     'rdf_io',
     'skosxl',
     'versatileimagefield',
+    'captcha',
 ]
 
 CUSTOM_MODULES = False
@@ -337,6 +338,15 @@ HAYSTACK_CONNECTIONS = {
 }
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
+
+###########
+# CAPTCHA #
+###########
+
+CAPTCHA_FONT_SIZE = 30
+CAPTCHA_LENGTH = 6
+
+
 ##################
 # LOCAL SETTINGS #
 ##################
@@ -384,6 +394,3 @@ try:
     move(INSTALLED_APPS, "ulysses.system", len(INSTALLED_APPS))
 except ValueError:
     pass
-
-
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
