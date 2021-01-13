@@ -58,6 +58,7 @@ except ImportError as e:
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['www.starts.eu', 'vertigo.starts.eu', 'vertigo2017.ircam.fr',
 	'findpartner.starts.eu', 'wearsustain.starts.eu', 'starts01.ircam.fr',
+    'sanbbox.www.starts.eu', 'sandbox.vertigo.starts.eu', 'sandbox.vertigo.ircam.fr',
         'starts02.ircam.fr',]
 if DEBUG:
     ALLOWED_HOSTS = ['*']
