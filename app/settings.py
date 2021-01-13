@@ -278,6 +278,8 @@ ARTICLE_KEYWORDS = ''
 SHOP_USE_VARIATIONS = False
 SHOP_USE_RATINGS = False
 
+FORMS_UPLOAD_ROOT = '/srv/media'
+
 PROJECT_DEMOS_DIR = '/srv/media/projects/demos/'
 if not os.path.exists(PROJECT_DEMOS_DIR):
     os.makedirs(PROJECT_DEMOS_DIR)
