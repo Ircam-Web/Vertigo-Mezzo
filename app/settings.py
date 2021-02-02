@@ -349,6 +349,12 @@ HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 CAPTCHA_FONT_SIZE = 30
 CAPTCHA_LENGTH = 6
 
+############
+# ACCOUNTS #
+############
+
+ACCOUNTS_VERIFICATION_REQUIRED = True
+
 
 ##################
 # LOCAL SETTINGS #
